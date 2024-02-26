@@ -29,11 +29,8 @@ const app = express();
 
 app.use(express.json());
 
-const corsOptions = {
-  origin: 'https://smart-brain-6kzw.onrender.com/'
-};
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 
 app.get("/", (req,res)=>{res.json("success")})
@@ -47,7 +44,10 @@ app.get("/profile/:id",(req,res) => {profile.handleProfileGet(req,res,db)})
 app.put("/image",(req,res) => {image.handleImage(req,res,db)})
 app.post("/imageurl",(req,res) => {image.handleApiCall(req,res)})
 
-app.listen(process.env.PORT || 3000, ()=>{
-    console.log(`app is running on port ${process.env.PORT}`)
-})
+app.options('*', cors());
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`app is running on port ${PORT}`);
+});
 
