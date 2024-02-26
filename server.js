@@ -27,10 +27,10 @@ const db = knex({
 
 
 app.use(express.json());
-app.use(cors())
-app.use((req,res,next)=>{
-  res.setHeader("Access-Control-Allow-Origin", "dpg-cne4c5icn0vc73f9a9m0-a.frankfurt-postgres.render.com");
-})
+app.use(cors({
+  origin: "dpg-cne4c5icn0vc73f9a9m0-a.frankfurt-postgres.render.com"
+}))
+
 
 app.get("/", (req,res)=>{
     res.json("success")
