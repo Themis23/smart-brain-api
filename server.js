@@ -30,7 +30,11 @@ const app = express();
 app.use(express.json());
 
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://smart-brain-6kzw.onrender.com', // Adjust the origin to your frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow the necessary HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+}));
 
 
 app.get("/", (req,res)=>{res.json("success")})
@@ -49,5 +53,4 @@ app.options('*', cors());
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`app is running on port ${PORT}`);
-});
-
+})
