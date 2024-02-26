@@ -1,5 +1,5 @@
 const express = require ("express");
-const app = express();
+
 const cors = require ("cors");
 const knex = require('knex')
 const bcrypt = require ("bcrypt-nodejs")
@@ -15,26 +15,21 @@ const image = require("./controllers/image");
 const db = knex({
   client: 'pg',
   connection: {
-    connectionString: "dpg-cne4c5icn0vc73f9a9m0-a.frankfurt-postgres.render.com",
-    host: "dpg-cne4c5icn0vc73f9a9m0-a",
-    port: 5432,
-    user: "postgresql_d9e7_user",
-    database: "postgresql_d9e7",
-    password: "nm8WdLsSM9lwrTKLAdVmSfmIILG9FZNy",
-    ssl: { rejectUnauthorized: false },
+    host : '127.0.0.1',
+    port : 5432,
+    user : 'postgres',
+    password : 'test',
+    database : 'smart-brain'
   }
-  });
+});
 
+const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: "dpg-cne4c5icn0vc73f9a9m0-a.frankfurt-postgres.render.com"
-}))
+app.use(cors());
 
 
-app.get("/", (req,res)=>{
-    res.json("success")
-})
+app.get("/", (req,res)=>{res.json("success")})
 
 app.post("/signin", (req,res) => {signin.handleSignin(req,res,db,bcrypt)})
 
