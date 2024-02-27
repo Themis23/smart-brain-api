@@ -31,7 +31,7 @@ app.use(express.json());
 
 
 app.use(cors(
-  {origin: "https://smart-brain-6kzw.onrender.com/"}
+  {origin: "https://smart-brain-6kzw.onrender.com"}
 ));
 
 
