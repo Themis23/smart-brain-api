@@ -30,7 +30,9 @@ const app = express();
 app.use(express.json());
 
 
-app.use(cors());
+app.use(cors(
+  {origin: "https://smart-brain-6kzw.onrender.com/"}
+));
 
 
 app.get("/", (req,res)=>{res.json("success")})
