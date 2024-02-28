@@ -6,8 +6,8 @@ const handleApiCall = (req,res) =>{
  }
 
 const returnClarifaiRequestOptions = (imageUrl) =>{
-    const PAT = 'b2ae913fa5e549c8a521f54733f75092';
-    const USER_ID = 'methis23';   
+    const PAT = process.env.CLARIFAI_PAT ;
+    const USER_ID = process.env.CLARIFAI_USER_ID;   
     const APP_ID = 'my-first-application';
     const IMAGE_URL = imageUrl;    
     const raw = JSON.stringify({
