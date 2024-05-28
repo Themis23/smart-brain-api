@@ -26,13 +26,13 @@ const handleRegister = (req, res, db, bcrypt) => {
           })
           .catch((err) => {
             trx.rollback();
-            res.status(400).json("unable to register user");
+            res.status(400).json("unable to register user 1");
           });
       })
       .then(trx.commit)
       .catch((err) => {
         trx.rollback();
-        res.status(400).json("unable to register user");
+        res.status(400).json("unable to register user 2");
       });
   }).catch((err) => {
     res.status(400).json("unable to register transaction");
